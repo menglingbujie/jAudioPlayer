@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JPlayer</title>
+<meta charset="utf-8">
+<link href="css/player.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="playerId"></div>
+<div id="playerContainerId">
+    <div class="title"></div>
+    <div class="processBar">
+        <em class="btime">00:00</em>
+        <div class="processbg">
+            <div class="seekbar">
+                <div class="process"></div>
+                <div class="loading"></div>
+            </div>
+        </div>
+        <em class="duration">00:00</em>
+    </div>
+    <div class="buttonsGroup">
+        <a href="javascript:void()" class="btn"><i class="play"></i></a>
+        <a href="javascript:void()" class="btn"><i class="stop"></i></a>
+        <div class="volumebar">
+            <a href="javascript:void()" class="btn"><i class="mute"></i></a>
+            <div class="volumebar_processbg"><div class="volumebar_process"></div></div>
+            <a href="javascript:void()" class="btn"><i class="voluemax"></i></a>
+        </div>
+    </div>
+</div>
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/jquery.jplayer.min.js"></script>
+<script src="js/player.js"></script>
+<script>Player.init();</script>
+</body>
+</html>

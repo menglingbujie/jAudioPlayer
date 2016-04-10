@@ -1,0 +1,152 @@
+*{box-sizing: border-box;}
+html{
+    font-size:62.5%;
+}
+body,html{
+    padding:0;margin:0;
+    min-width:400px;
+}
+.borderradius(@r:5px){
+    -webkit-border-radius:@r;
+    -o-border-radius:@r;
+    -moz-border-radius:@r;
+    -ms-border-radius:@r;
+    border-radius:@r;
+}
+
+#playerContainerId{
+    width:90%;
+    margin:2rem auto;
+    border:1px solid lightblue;
+    position:relative;
+    .massBox{
+        position:absolute;top:0;left:0;
+        background-color:rgba(1,1,1,.9);
+        width:100%;height:100%;
+        text-align: center;color:white;line-height:130px;
+        font-size:2.4rem;z-index:10;
+    }
+    .title{
+        text-align: center;
+        font-size:2rem;margin-top:2rem;
+    }
+    .title:before{content:"<<"}
+    .title:after{content:">>"}
+    .processBar{
+        text-align: center;
+        margin:1rem 0 0 0;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        .btime,.duration{
+            font-size:1.6rem;text-align: center;
+        }
+        .btime{float:left;min-width:2rem;width:10%;}
+        .duration{float:right;min-width:2rem;width:10%;}
+        .processbg{
+            float:left;
+            border:1px solid black;
+            height:1.6rem;
+            text-align: left;
+            padding:0 0.4rem 0 0.4rem;
+            overflow: hidden;
+            .borderradius(10px);
+            .seekbar{
+                height:50%;
+                .borderradius(10px);
+                display:inline-block;
+                vertical-align: middle;
+                position:relative;
+                .process{
+                    .borderradius(10px);
+                    width:10%;height:100%;
+                    background-color:lightgreen;
+                    position:relative;z-index:5;
+                }
+                .loading{
+                    .borderradius(10px);
+                    width:0;height:100%;
+                    background-color:lightgray;
+                    position:absolute;z-index:2;top:0;
+                }
+            }
+            .seekbar.jp-seeking-bg{
+                /* The seeking class is added/removed inside jPlayer */
+                background: url("../images/jplayer.blue.monday.seeking.gif");
+            }
+        }
+        @media screen and (max-width:500px){
+            .processbg{
+                width:70%;height:1.6rem;margin:0 2% 0 2%;
+            }
+            .btime{margin-left:2%;}
+            .duration{margin-right:4%;}
+        }
+        @media screen and (min-width:501px){
+            .processbg{
+                width:76%;height:1.6rem;
+            }
+            .btime{margin-left:2%;}
+            .duration{margin-right:2%;}
+        }
+    }
+    .buttonsGroup{
+        padding:1rem;
+        .btn{
+            .borderradius(10px);display:inline-block;
+            outline:none;width:3rem;height:2.8rem;
+            i{display:block;width:100%;height:100%;}
+            .play{
+                background-image:url("../images/play_72.png");
+                background-size:100%;
+            }
+            .pause{
+                background-image:url("../images/pause_72.png");
+                background-size:100%;
+            }
+            .stop{
+                background-image:url("../images/stop_72.png");
+                background-size:100%;
+            }
+        }
+    }
+
+    .volumebar{
+        // border:2px solid red;
+        width:18rem;display:inline-block;
+        margin:1rem 0 0 0;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        .btn{
+            // border:1px solid red;
+            float:left;margin:0 0.5rem 0 0.5rem;
+            .borderradius(10px);display:inline-block;
+            outline:none;width:3rem;height:2.4rem;
+            i{display:block;width:100%;height:100%;}
+            .mute{
+                background-image:url("../images/volume_mute.png");
+                background-size:100%;
+            }
+            .voluemax{
+                background-image:url("../images/volume_max.png");
+                background-size:100%;
+            }
+        }
+        .volumebar_processbg{
+            .borderradius(10px);
+            float:left;
+            border:1px solid black;
+            width:8rem;height:1.6rem;
+            margin-top:0.35rem;
+            padding:0 0.4rem 0 0.4rem;
+            .volumebar_process{
+                .borderradius(10px);
+                display:inline-block;
+                vertical-align: middle;
+                width:50%;height:50%;display:inline-block;
+                background-color:gray;
+            }
+        }
+    }
+}
